@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.set("view engine","ejs");
 
 app.use(session({
-  secret: "mySecret",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
 }));
@@ -24,7 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-mongoose.connect("mongodb+srv://admin-habibie:Ft1602hb7!@cluster0.ilue1.mongodb.net/myThought?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin-habibie:"+process.env.PASS+"@cluster0.ilue1.mongodb.net/myThought?retryWrites=true&w=majority");
 // mongoose.set("useCreateIndex",true);
 
 const schema = new mongoose.Schema({
