@@ -11,16 +11,12 @@
         <div class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true" >
           <div class="d-flex w-100 align-items-center justify-content-between">
             <strong class="mb-1"> <%=eachStory.title%> </strong>
-            <div ><small class="adjustDate"> <%=eachStory.date %> </small>
-              <form  class = "adjustForm"action="/deletePost" method="post"><button name="button" class ="btn btn-dark" href="#" onclick="this.form.submit" style="font-size: 0.6rem;"value=<%=eachStory._id%>>delete</button></form></div>
+            <small class="adjustDate"> <%=eachStory.date %> </small>
             
           </div>
           <div class="col-10 mb-1 small"> 
-            <% if(eachStory.content.length>100){ %>
               <%=eachStory.content.substr(0,100)%> <a href= "/note/<%=eachStory._id%>" >...more</a> 
-           <% } else { %>
-              <%=eachStory.content%>
-            <% } %>
+
           </div>
             
         </div>    
